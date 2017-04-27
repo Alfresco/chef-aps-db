@@ -22,5 +22,5 @@ suites:
     run_list:
       - recipe[aps-db::default]
     verifier:
- +      inspec_tests:
- +        - path: test/inspec/
+       inspec_tests:
+        - path: test/inspec/
