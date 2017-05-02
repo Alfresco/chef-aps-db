@@ -3,10 +3,11 @@ source 'https://rubygems.org'
 # Used by Travis
 
 gem 'berkshelf', '~> 5.1.0'
+gem 'chef', '~> 12.19.36'
 gem 'chef-zero', '5.3.2'
 gem 'chefspec', '~> 5.3.0'
 gem 'cookstyle', '~> 1.2.0'
-gem 'foodcritic', '~> 6.3.0'
+gem 'foodcritic', '~> 10.2.0'
 gem 'inspec', '~>1.2.1'
 gem 'rake'
 gem 'rspec', '~> 3.5.0'
@@ -26,7 +27,7 @@ end
 
 group :development do
   gem 'guard'
-  gem 'guard-foodcritic', '~> 2.1.0'
+  gem 'guard-foodcritic', '~> 3.0.0'
   gem 'guard-rspec'
   gem 'guard-rubocop'
 end
