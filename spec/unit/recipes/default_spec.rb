@@ -16,5 +16,9 @@ describe 'aps-db::default' do
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end
+
+    it 'includes the `haproxy` recipe' do
+      expect(chef_run).to include_recipe('aps-db::mysql')
+    end
   end
 end
