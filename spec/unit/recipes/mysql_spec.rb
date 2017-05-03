@@ -21,4 +21,8 @@ describe 'aps-db::mysql' do
       db_name: 'process'
     )
   end
+
+  it 'Should create a MYSQL DB' do
+    expect(chef_run).to run_mysql_db('Creating MySQL DB')
+  end
 end
