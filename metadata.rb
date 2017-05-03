@@ -8,12 +8,15 @@ version '0.1.0'
 
 # If you upload to Supermarket you should set this so your cookbook
 # gets a `View Issues` link
-# issues_url 'https://github.com/<insert_org_here>/aps-db/issues' if respond_to?(:issues_url)
+issues_url 'https://github.com/Alfresco/aps-db/issues' if respond_to?(:issues_url)
 
 # If you upload to Supermarket you should set this so your cookbook
 # gets a `View Source` link
-# source_url 'https://github.com/<insert_org_here>/aps-db' if respond_to?(:source_url)
+source_url 'https://github.com/Alfresco/aps-db' if respond_to?(:source_url)
 
 depends 'database', '~> 6.1.1'
 depends 'mysql', '~> 7.2'
 depends 'mysql2_chef_gem', '>= 1.0.1'
+
+chef_version '~> 12'
+supports 'centos', '>= 7.0'

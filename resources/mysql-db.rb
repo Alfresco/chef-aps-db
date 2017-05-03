@@ -4,7 +4,7 @@ property :db_user, String
 property :db_pass, String
 property :db_name, String
 property :mysql_root_password, String, default: 'alfresco'
-property :db_port,  String, default: '3306'
+property :db_port, String, default: '3306'
 property :mysql_version, String, default: '5.6'
 property :db_host, String, default: '127.0.0.1'
 property :db_root_user, String, default: 'root'
