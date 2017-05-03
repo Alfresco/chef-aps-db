@@ -19,9 +19,9 @@ platforms:
       run_command: /usr/sbin/init
       privileged: true
       require_chef_omnibus: 12.19.36
-      hostname: mysqlhost.local
-      forward:
-      - 3306:3306
+      # hostname: mysqlhost.local
+      # forward:
+      # - 3306:3306
 
 suites:
   - name: default
