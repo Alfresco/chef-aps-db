@@ -1,6 +1,6 @@
 services = ['mysql-local']
 
-control 'alfresco-01' do
+control 'aps-01' do
   impact 0.7
   title 'MySQL configuration'
   desc 'Checks mysql connection'

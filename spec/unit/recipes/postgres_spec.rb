@@ -18,7 +18,7 @@ describe 'aps-db::postgres' do
     expect(
       db_user: 'alfresco',
       db_pass: 'alfresco',
-      db_name: 'activiti'
+      db_name: 'process'
     )
   end
 
