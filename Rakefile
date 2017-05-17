@@ -6,13 +6,13 @@ require 'cookstyle'
 
 desc 'Runs ChefSpec tests'
 task :chefspec do
-  sh 'chef exec bundle exec rspec'
+  sh 'bundle exec rspec'
 end
 
 desc 'Runs foodcritic test'
 task :foodcritic do
   FoodCritic::Rake::LintTask.new
-  sh 'chef exec bundle exec foodcritic -f any .'
+  sh 'bundle exec foodcritic -f any .'
 end
 
 desc 'Runs rspec tests in test/unit folder'
@@ -24,7 +24,7 @@ end
 
 desc 'Runs cookstyle'
 task :cookstyle do
-  sh 'chef exec bundle exec cookstyle'
+  sh 'bundle exec cookstyle'
 end
 
 desc 'Run Test Kitchen integration tests'
