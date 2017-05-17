@@ -14,7 +14,7 @@ action :run do
       host: db_host,
       port: db_port,
       username: db_defuser,
-      password: db_defpass
+      password: db_defpass,
     }
   postgresql_database db_name do
     connection postgresql_connection_info
@@ -25,7 +25,7 @@ action :run do
     connection postgresql_connection_info
     password   db_pass
     encoding 'utf8'
-    action     :create
+    action :create
   end
 
   postgresql_database_user db_user do

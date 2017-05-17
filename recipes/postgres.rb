@@ -1,4 +1,4 @@
-include_recipe "database::postgresql"
+include_recipe 'database::postgresql'
 include_recipe 'postgresql::server'
 
 postgresql_db 'Creating Postgres DB' do
