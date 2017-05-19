@@ -29,9 +29,19 @@ suites:
     verifier:
        inspec_tests:
         - path: test/mysql/inspec/
+    attributes: {
+      'aps-db' : {
+        'engine' : 'mysql'
+        }
+      }
   - name: postgres
     run_list:
       - recipe[aps-db::postgres]
     verifier:
        inspec_tests:
         - path: test/postgres/inspec/
+    attributes: {
+      'aps-db' : {
+        'engine' : 'postgres'
+        }
+      }
