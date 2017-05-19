@@ -23,9 +23,15 @@ platforms:
       # - 3306:3306
 
 suites:
-  - name: default
+  - name: mysql
     run_list:
-      - recipe[aps-db::default]
+      - recipe[aps-db::mysql]
     verifier:
        inspec_tests:
-         - path: test/inspec/
+        - path: test/mysql/inspec/
+  - name: postgres
+    run_list:
+      - recipe[aps-db::postgres]
+    verifier:
+       inspec_tests:
+        - path: test/postgres/inspec/
