@@ -6,6 +6,8 @@ default['postgresql']['password']['postgres'] = 'alfresco'
 
 default['postgresql']['version'] = '9.4.6'
 default['postgresql']['enable_pgdg_apt'] = true
+
+# setting up this attributes as nil, in order for postgres setting up correctly the locales to 'C'
 default['postgresql']['config']['lc_messages'] = nil
 default['postgresql']['config']['lc_monetary'] = nil
 default['postgresql']['config']['lc_numeric'] = nil
