@@ -7,8 +7,12 @@ describe 'aps-db::postgres' do
     runner.converge(described_recipe)
   end
 
-  it 'includes the `postgres` recipe' do
-    expect(chef_run).to include_recipe('aps-db::postgres')
+  it 'includes the `database::postgresql` recipe' do
+    expect(chef_run).to include_recipe('database::postgresql')
+  end
+
+  it 'includes the `postgresql::server` recipe' do
+    expect(chef_run).to include_recipe('postgresql::server')
   end
 
   it 'Should create a Postgres DB' do
