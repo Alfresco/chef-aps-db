@@ -6,7 +6,7 @@ if defined?(ChefSpec)
     ChefSpec::Matchers::ResourceMatcher.new(:mysql_db, :run, resource_name)
   end
 
-  def run_postgres_db(resource_name)
+  def run_postgresql_db(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:postgresql_db, :run, resource_name)
   end
 end

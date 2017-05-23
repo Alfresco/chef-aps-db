@@ -1,3 +1,9 @@
+#
+# Cookbook Name:: aps-db
+# Recipe:: mysql
+#
+# Copyright (c) 2017 The Authors, All Rights Reserved.
+
 mysql_db 'Creating MySQL DB' do
   db_user node['aps-db']['mysql']['username']
   db_pass node['aps-db']['mysql']['password']

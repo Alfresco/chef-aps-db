@@ -1,3 +1,9 @@
+#
+# Cookbook Name:: aps-db
+# Recipe:: postgres
+#
+# Copyright (c) 2017 The Authors, All Rights Reserved.
+
 include_recipe 'database::postgresql'
 include_recipe 'postgresql::server'
 
@@ -10,3 +16,6 @@ postgresql_db 'Creating Postgres DB' do
 
   action :run
 end
+
+include_recipe 'database::postgresql'
+include_recipe 'postgresql::server'

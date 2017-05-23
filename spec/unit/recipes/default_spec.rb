@@ -17,8 +17,12 @@ describe 'aps-db::default' do
       expect { chef_run }.to_not raise_error
     end
 
-    it 'includes the `haproxy` recipe' do
+    it 'includes the `mysql` recipe' do
       expect(chef_run).to include_recipe('aps-db::mysql')
     end
+
+    # it 'includes the `postgres` recipe' do
+    #  expect(chef_run).not_to include_recipe('aps-db::postgres')
+    # end
   end
 end
