@@ -11,10 +11,6 @@ RSpec.describe 'aps-db::mysql' do
     end.converge(described_recipe)
   end
 
-  before do
-    stub_command('getenforce | grep -i enforcing').and_return(false)
-  end
-
   it 'converges successfully' do
     expect { chef_run }.to_not raise_error
   end

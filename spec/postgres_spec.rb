@@ -11,7 +11,7 @@ RSpec.describe 'aps-db::postgres' do
   end
 
   before do
-    stub_command('ls /var/lib/pgsql/9.4.6/data/recovery.conf').and_return('...')
+    stub_command('ls /var/lib/pgsql/9.4.6/data/recovery.conf').and_return('')
   end
 
   it 'converges successfully' do

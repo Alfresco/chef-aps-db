@@ -17,7 +17,7 @@ RSpec.describe 'aps-db::default' do
   end
 
   before do
-    stub_command('ls /var/lib/pgsql/9.4.6/data/recovery.conf').and_return('...')
+    stub_command('ls /var/lib/pgsql/9.4.6/data/recovery.conf').and_return('')
   end
 
   context 'When all attributes are default, on an unspecified platform' do

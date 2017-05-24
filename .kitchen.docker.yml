@@ -26,9 +26,10 @@ suites:
   - name: mysql
     run_list:
       - recipe[aps-db::default]
-    verifier:
-       inspec_tests:
-        - path: test/mysql/inspec/
+    vverifier:
+      inspec_tests:
+        - name: chef-aps-inspec-mysql
+          git: https://github.com/Alfresco/chef-aps-inspec-mysql
     attributes: {
       'aps-db' : {
         'engine' : 'mysql'
@@ -38,8 +39,9 @@ suites:
     run_list:
       - recipe[aps-db::default]
     verifier:
-       inspec_tests:
-        - path: test/postgres/inspec/
+      inspec_tests:
+        - name: chef-aps-inspec-mysql
+          git: https://github.com/Alfresco/chef-aps-inspec-postgres
     attributes: {
       'aps-db' : {
         'engine' : 'postgres'
