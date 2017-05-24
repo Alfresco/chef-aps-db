@@ -16,6 +16,3 @@ postgresql_db 'Creating Postgres DB' do
 
   action :run
 end
-
-include_recipe 'database::postgresql'
-include_recipe 'postgresql::server'

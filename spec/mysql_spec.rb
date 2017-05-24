@@ -1,13 +1,18 @@
 require 'spec_helper'
 require 'chefspec'
 
-describe 'aps-db::mysql' do
+RSpec.describe 'aps-db::mysql' do
+  let(:chef_run) do
+    ChefSpec::SoloRunner.new(
+      platform: 'centos',
+      version: '7.2.1511',
+      file_cache_path: '/var/chef/cache'
+    ) do |node|
+    end.converge(described_recipe)
+  end
+
   before do
     stub_command('getenforce | grep -i enforcing').and_return(false)
-  end
-  let(:chef_run) do
-    runner = ChefSpec::ServerRunner.new
-    runner.converge(described_recipe)
   end
 
   it 'converges successfully' do
