@@ -15,13 +15,6 @@ task :foodcritic do
   sh 'bundle exec foodcritic -f any .'
 end
 
-desc 'Runs rspec tests in test/unit folder'
-task :unit do
-  RSpec::Core::RakeTask.new(:unit) do |t|
-    t.pattern = 'test/unit/**/*_spec.rb'
-  end
-end
-
 desc 'Runs cookstyle'
 task :cookstyle do
   sh 'bundle exec cookstyle'
@@ -65,4 +58,4 @@ namespace :integration do
   end
 end
 
-task default: [:foodcritic, :unit, :chefspec, :cookstyle]
+task default: [:foodcritic, :chefspec, :cookstyle]
