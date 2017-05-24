@@ -35,7 +35,7 @@ suites:
       - recipe[aps-db::default]
     verifier:
       inspec_tests:
-        - name: chef-aps-inspec-mysql
+        - name: chef-aps-inspec-postgres
           git: https://github.com/Alfresco/chef-aps-inspec-postgres
     attributes: {
       'aps-db' : {
