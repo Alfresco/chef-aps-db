@@ -18,9 +18,27 @@ platforms:
   - name: centos-7.2
 
 suites:
-  - name: default
+  - name: mysql
     run_list:
       - recipe[aps-db::default]
     verifier:
-       inspec_tests:
-        - path: test/inspec/
+      inspec_tests:
+        - name: chef-aps-inspec-mysql
+          git: https://github.com/Alfresco/chef-aps-inspec-mysql
+    attributes: {
+      'aps-db' : {
+        'engine' : 'mysql'
+        }
+      }
+  - name: postgres
+    run_list:
+      - recipe[aps-db::default]
+    verifier:
+      inspec_tests:
+        - name: chef-aps-inspec-postgres
+          git: https://github.com/Alfresco/chef-aps-inspec-postgres
+    attributes: {
+      'aps-db' : {
+        'engine' : 'postgres'
+        }
+      }
