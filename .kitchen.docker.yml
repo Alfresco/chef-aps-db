@@ -26,7 +26,7 @@ suites:
   - name: mysql
     run_list:
       - recipe[aps-db::default]
-    vverifier:
+    verifier:
       inspec_tests:
         - name: chef-aps-inspec-mysql
           git: https://github.com/Alfresco/chef-aps-inspec-mysql
