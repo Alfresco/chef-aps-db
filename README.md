@@ -1,5 +1,5 @@
 # chef-aps-db cookbook
-[![Build Status](https://travis-ci.com/Alfresco/chef-aps-db.svg)](https://travis-ci.com/Alfresco/chef-aps-db?branch=develop)
+[![Build Status](https://travis-ci.com/Alfresco/chef-aps-db.svg)](https://travis-ci.com/Alfresco/chef-aps-db.svg?token=yHqELzyFjvFuT3MeD8Vf&branch=develop)
 
 This cookbook will create the database needed for APS.
 The default choice is Mysql, but it can be expanded to use Postgres as well.
