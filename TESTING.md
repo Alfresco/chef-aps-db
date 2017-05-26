@@ -70,27 +70,35 @@ Where
 - **DRIVER** can either be `vagrant` or `docker`,
 - **SUITE** is one of the suites defined in .kitchen.yml (vagrant) or .kitchen.docker.yml (docker)
  - current suites available are:
-   - tomcat-multi
-   - tomcat-single
+   - mysql
+   - postgres
 
    Use empty suite value to run all of them
 - **KITCHEN_COMMAND** one of the Kitchen phase commands:  [Kitchen commands](https://github.com/test-kitchen/test-kitchen/wiki/Getting-Started)
 
 Examples:
 
-To run tomcat-multi suite with Vagrant using the Kitchen _test_ command
+To run mysql suite with Vagrant using the Kitchen _test_ command
 ```shell
 chef exec bundle exec rake 'integration:vagrant[mysql,test]'
 ```
 
-To run tomcat-single suite with Docker using the Kitchen _verify_ command
+To run mysql suite with Docker using the Kitchen _verify_ command
 
 ```shell
 chef exec bundle exec rake 'integration:docker[mysql,verify]'
 ```
 
-To run all the available suites with Vagrant using the Kitchen _converge_ command
+To run postgres suite with Vagrant using the Kitchen _test_ command
+```shell
+chef exec bundle exec rake 'integration:vagrant[postgres,test]'
+```
+
+To run postgres suite with Docker using the Kitchen _verify_ command
 
 ```shell
-chef exec bundle exec rake 'integration:vagrant[,converge]'
-```
+chef exec bundle exec rake 'integration:docker[postgres,verify]'
+```´
+
+
+

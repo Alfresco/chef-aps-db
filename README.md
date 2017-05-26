@@ -23,11 +23,101 @@ The following platforms are supported and tested with Test Kitchen:
 
 - Chef 12.1+
 
-## Attributes
+## Attributes for default recipe
 
 | Key | Type | Description | Default |
 |-----|------|-------------|---------|
 | default['aps-db']['engine'] | String | Engine of choice  | mysql  |
+
+## Attributes for mysql recipe
+
+| Key | Type | Description | Default |
+|-----|------|-------------|---------|
+| default['aps-db']['mysql']['username'] | String | Database Username  | alfresco  |
+| default['aps-db']['mysql']['password'] | String | Database Password  | alfresco  |
+| default['aps-db']['mysql']['database_name'] | String | Database Name  | process  |
+
+## Attributes for postgres recipe
+
+| Key | Type | Description | Default |
+|-----|------|-------------|---------|
+| default['aps-db']['postgres']['username'] | String | Database Username  | alfresco  |
+| default['aps-db']['postgres']['password'] | String | Database Password  | alfresco  |
+| default['aps-db']['postgres']['database_name'] | String | Database Name  | process  |
+| default['aps-db']['postgres']['default_user'] | String | Database Default Username  | postgres  |
+| default['postgresql']['password']['postgres'] | String | Database Default Password  | alfresco  |
+| default['postgresql']['version'] | String | Postgres version  | 9.4.6  |
+| default['postgresql']['enable_pgdg_apt'] | String | Enable apt repo  | true  |
+
+
+## Mysql recipe
+
+| Key | Type | Description | Default |
+|-----|------|-------------|---------|
+| db_user | String | Database Username  | node['aps-db']['mysql']['username']  |
+| db_pass | String | Database Password  | node['aps-db']['mysql']['password']  |
+| db_name | String | Database Name  | node['aps-db']['mysql']['database_name']  |
+
+
+## Postgres recipe
+
+| Key | Type | Description | Default |
+|-----|------|-------------|---------|
+| db_user | String | Database Username  | node['aps-db']['postgres']['username']  |
+| db_pass | String | Database Password  | node['aps-db']['postgres']['password']  |
+| db_name | String | Database Name  | node['aps-db']['postgres']['database_name']  |
+| db_defuser | String | Database Password  | node['aps-db']['postgres']['default_user']  |
+| db_defpass | String | Database Name  | node['postgresql']['password']['postgres']  |
+
+## Mysql Resources
+
+| Function | Description |
+|-----|------|
+| mysql2_chef_gem | installation of mysql using a chef gem  |
+| mysql_service | creation and init of mysql service  |
+| mysql_connection_info | setting up the connection info  |
+| mysql_database | creation of the database  |
+| mysql_database_user | creation of the user for the database access  |
+
+
+### Properties
+
+| Key | Type | Description | Default |
+|-----|------|-------------|---------|
+| db_user | String | Database Username  |  *  |
+| db_pass | String | Database Password  |  *  |
+| db_name | String | Database Name  |  *  |
+| mysql_root_password | String | Mysql root password | alfresco  |
+| db_port | String | Database Port  | 3306 |
+| mysql_version | String | Mysql port  | 5.6  |
+| db_host | String | Host Url/IP/DNS  | 127.0.0.1  |
+| db_root_user | String | Database Root Username  | root  |
+
+*-> default values from attributes.rb
+
+## Postgres Resources
+
+| Function | Description |
+|-----|------|
+| postgresql_connection_info | setting up the connection info  |
+| postgresql_database | creation of the database  |
+| postgresql_database_user | creation of the user for the database access  |
+| postgresql_database_user | setting up the permissions for the user  |
+
+
+### Properties
+
+| Key | Type | Description | Default |
+|-----|------|-------------|---------|
+| db_user | String | Database Username  |  *  |
+| db_pass | String | Database Password  |  *  |
+| db_name | String | Database Name  |  *  |
+| db_defuser | String | Mysql root password |  *  |
+| db_defpass | String | Database Port  |  *  |
+| db_port | String | Mysql port  |  5432  |
+| db_host | String | Host Url/IP/DNS  | 127.0.0.1  |
+
+*-> default values from attributes.rb
 
 ## Usage
 
@@ -41,12 +131,12 @@ Main recipe is:
 
 - `aps-db::default` will install the database of your choice ( specified under the `default['aps-db']['engine']` attribute)
 
-```
+
 ## Testing
 Refer to: [Testing](./TESTING.md)
 ## License and Authors
 
-- Author:: Marco Mancuso (<marco.mancuso@alfresco.com>)
+- Author:: DevOps (<devops@alfresco.com>)
 
 ```text
 Copyright 2017, Alfresco
