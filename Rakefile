@@ -1,23 +1,27 @@
 # !/usr/bin/env rake
 
-require 'foodcritic'
-require 'rspec/core/rake_task'
-require 'cookstyle'
+require 'yamllint/rake_task'
 
-desc 'Runs ChefSpec tests'
-task :chefspec do
-  sh 'bundle exec rspec'
+desc 'Runs cookstyle tests'
+task :cookstyle do
+  sh 'chef exec bundle exec cookstyle'
 end
 
 desc 'Runs foodcritic test'
 task :foodcritic do
-  FoodCritic::Rake::LintTask.new
-  sh 'bundle exec foodcritic -f any .'
+  sh 'chef exec bundle exec foodcritic -f any .'
 end
 
-desc 'Runs cookstyle'
-task :cookstyle do
-  sh 'bundle exec cookstyle'
+desc 'Runs ChefSpec tests'
+task :chefspec do
+  sh 'chef exec bundle exec rspec'
+end
+
+desc 'Runs yamllint checks'
+task :yamllint do
+  YamlLint::RakeTask.new do |t|
+    t.paths = %w( \.*\.y*ml )
+  end
 end
 
 desc 'Run Test Kitchen integration tests'
@@ -49,7 +53,7 @@ namespace :integration do
 
   desc 'Run integration tests with kitchen-vagrant'
   task :vagrant, [:regexp, :action] do |_t, args|
-    run_kitchen(args.action, args.regexp)
+    run_kitchen(args.action, args.regexp, local_config: '.kitchen.yml')
   end
 
   desc 'Run integration tests with kitchen-docker'
@@ -58,4 +62,4 @@ namespace :integration do
   end
 end
 
-task default: [:foodcritic, :chefspec, :cookstyle]
+task default: [:yamllint, :foodcritic, :cookstyle, :chefspec]
