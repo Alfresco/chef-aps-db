@@ -1,0 +1,16 @@
+# When editing this file, remember that http://www.yamllint.com is your friend :-)
+---
+driver:
+  name: docker
+  use_sudo: false
+
+platforms:
+  - name: centos-7
+    driver_config:
+      image: centos:7.2.1511
+      platform: centos
+      run_command: /usr/sbin/init
+      privileged: true
+      # hostname: mysqlhost.local
+      # forward:
+      # - 3306:3306
