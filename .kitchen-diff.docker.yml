@@ -4,13 +4,6 @@ driver:
   name: docker
   use_sudo: false
 
-provisioner:
-  name: chef_zero
-  require_chef_omnibus: 12.19.36
-
-verifier:
-  name: inspec
-
 platforms:
   - name: centos-7
     driver_config:
@@ -18,15 +11,6 @@ platforms:
       platform: centos
       run_command: /usr/sbin/init
       privileged: true
-      require_chef_omnibus: 12.19.36
       # hostname: mysqlhost.local
       # forward:
       # - 3306:3306
-
-suites:
-  - name: default
-    run_list:
-      - recipe[aps-db::default]
-    verifier:
-       inspec_tests:
-         - path: test/inspec/

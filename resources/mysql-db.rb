@@ -22,12 +22,11 @@ action :run do
     action [:create, :start]
   end
 
-  mysql_connection_info =
-    {
-      host: db_host,
-      username: db_root_user,
-      password: mysql_root_password,
-    }
+  mysql_connection_info = {
+    host: db_host,
+    username: db_root_user,
+    password: mysql_root_password,
+  }
 
   mysql_database db_name do
     connection mysql_connection_info
