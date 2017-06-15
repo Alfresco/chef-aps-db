@@ -29,7 +29,6 @@ action :run do
     end
   end
 
-
   mysql_service 'local' do
     port db_port
     version mysql_version
