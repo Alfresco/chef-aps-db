@@ -15,6 +15,20 @@ action :run do
     action :install
   end
 
+  selinux_commands = {}
+  selinux_commands['mkdir -p /var/lib/mysql-local ; semanage fcontext -a -t mysqld_db_t "/var/lib/mysql-local(/.*)?" ; restorecon -Rv /var/lib/mysql-local;']  = 'ls -lZ /var/lib/mysql-local | grep mysqld_db_t'
+  selinux_commands['mkdir -p /var/log/mysql-local ; semanage fcontext -a -t mysqld_log_t "/var/log/mysql-local(/.*)?" ; restorecon -Rv /var/log/mysql-local;'] = 'ls -lZ /var/log/mysql-local | grep mysqld_log_t'
+  # TODO: - add nginx 2100 port rule => into nginx.rb
+
+  # TODO: - make it a custom resource
+  selinux_commands.each do |command, not_if|
+    execute "selinux-command-#{command}" do
+      command command
+      only_if 'getenforce | grep -i enforcing'
+      not_if not_if
+    end
+  end
+
   mysql_service 'local' do
     port db_port
     version mysql_version
