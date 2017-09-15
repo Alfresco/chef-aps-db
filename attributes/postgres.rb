@@ -1,6 +1,7 @@
 default['aps-db']['postgres']['username'] = 'alfresco'
 default['aps-db']['postgres']['password'] = 'alfresco'
 default['aps-db']['postgres']['database_name'] = 'process'
+default['aps-db']['postgres']['admin_db_name'] = 'activitiadmin'
 default['aps-db']['postgres']['default_user'] = 'postgres'
 default['postgresql']['password']['postgres'] = 'alfresco'
 
