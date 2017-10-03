@@ -23,7 +23,19 @@ RSpec.describe 'aps-db::mysql' do
     )
   end
 
+  it 'Creating MySQL Admin DB' do
+    expect(
+      db_user: 'alfresco',
+      db_pass: 'alfresco',
+      db_name: 'activitiadmin'
+    )
+  end
+
   it 'Should create a MYSQL DB' do
     expect(chef_run).to run_mysql_db('Creating MySQL DB')
+  end
+
+  it 'Should create an admin MYSQL DB' do
+    expect(chef_run).to run_mysql_db('Creating MySQL Admin DB')
   end
 end
